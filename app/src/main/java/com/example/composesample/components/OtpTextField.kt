@@ -22,7 +22,7 @@ import com.example.composesample.ui.theme.GreyLight
 fun OtpTextField(
     modifier: Modifier = Modifier,
     otpText: String,
-    otpCount: Int = 6,
+    otpCount: Int = 4,
     onOtpTextChange: (String, Boolean) -> Unit
 ) {
     LaunchedEffect(Unit) {
@@ -61,8 +61,7 @@ private fun CharView(
 ) {
     val isFocused = text.length == index
     val char = when {
-        index == text.length -> "0"
-        index > text.length -> ""
+        index >= text.length -> ""
         else -> text[index].toString()
     }
     Text(
